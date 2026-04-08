@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creator Inbox OS — Collegare Studio</title>
+  <meta name="description" content="Creator Inbox OS by Collegare Studio — the premium inbox management system for creators, influencers, and UGC talent." />
+
+  <!-- Google Fonts: Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Phosphor Icons (lightweight icon set) -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
+
+  <!-- App Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       SIDEBAR NAVIGATION
+       ============================================================ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">C</div>
+      <div class="brand-text">
+        <span class="brand-name">Creator Inbox OS</span>
+        <span class="brand-sub">by Collegare Studio</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-tab="dashboard">
+        <i class="ph ph-house"></i>
+        <span>Dashboard</span>
+      </button>
+      <button class="nav-item" data-tab="opportunities">
+        <i class="ph ph-briefcase"></i>
+        <span>Opportunities</span>
+      </button>
+      <button class="nav-item" data-tab="replies">
+        <i class="ph ph-chat-text"></i>
+        <span>Reply Library</span>
+      </button>
+      <button class="nav-item" data-tab="prompts">
+        <i class="ph ph-sparkle"></i>
+        <span>Prompt Studio</span>
+      </button>
+      <button class="nav-item" data-tab="workflow">
+        <i class="ph ph-list-checks"></i>
+        <span>Daily Workflow</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-footer-text">v1.0 &middot; Collegare Studio</div>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       MOBILE HEADER
+       ============================================================ -->
+  <header class="mobile-header" id="mobileHeader">
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="ph ph-list"></i>
+    </button>
+    <span class="mobile-brand">Creator Inbox OS</span>
+    <div style="width:32px"></div>
+  </header>
+
+  <!-- ============================================================
+       MAIN CONTENT AREA
+       ============================================================ -->
+  <main class="main-content" id="mainContent">
+
+    <!-- ========== DASHBOARD TAB ========== -->
+    <section class="tab-content active" id="tab-dashboard">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Welcome back</h1>
+          <p class="page-subtitle">Here's what's happening in your creator inbox today.</p>
+        </div>
+      </div>
+
+      <!-- Summary Cards -->
+      <div class="summary-cards">
+        <div class="summary-card card-new">
+          <div class="summary-icon"><i class="ph-fill ph-envelope-simple"></i></div>
+          <div class="summary-info">
+            <span class="summary-number" id="stat-new">0</span>
+            <span class="summary-label">New Opportunities</span>
+          </div>
+        </div>
+        <div class="summary-card card-followup">
+          <div class="summary-icon"><i class="ph-fill ph-clock-countdown"></i></div>
+          <div class="summary-info">
+            <span class="summary-number" id="stat-followup">0</span>
+            <span class="summary-label">Follow-ups Due</span>
+          </div>
+        </div>
+        <div class="summary-card card-paid">
+          <div class="summary-icon"><i class="ph-fill ph-currency-circle-dollar"></i></div>
+          <div class="summary-info">
+            <span class="summary-number" id="stat-paid">0</span>
+            <span class="summary-label">Paid Opportunities</span>
+          </div>
+        </div>
+        <div class="summary-card card-gifted">
+          <div class="summary-icon"><i class="ph-fill ph-gift"></i></div>
+          <div class="summary-info">
+            <span class="summary-number" id="stat-gifted">0</span>
+            <span class="summary-label">Gifted Opportunities</span>
+          </div>
+        </div>
+        <div class="summary-card card-archived">
+          <div class="summary-icon"><i class="ph-fill ph-archive"></i></div>
+          <div class="summary-info">
+            <span class="summary-number" id="stat-archived">0</span>
+            <span class="summary-label">Archived</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- How to Use + Recent -->
+      <div class="dashboard-grid">
+        <div class="card welcome-card">
+          <div class="card-header">
+            <i class="ph ph-info"></i>
+            <h3>How to Use This Dashboard</h3>
+          </div>
+          <div class="card-body">
+            <ol class="how-to-list">
+              <li><strong>Log every brand opportunity</strong> — Add it to the Opportunities tab as soon as it lands in your inbox.</li>
+              <li><strong>Categorize &amp; prioritize</strong> — Tag each opportunity by type (paid, gifted, affiliate) and set a priority level.</li>
+              <li><strong>Respond with confidence</strong> — Use the Reply Library for polished, copy-paste-ready templates.</li>
+              <li><strong>Draft with AI prompts</strong> — Visit Prompt Studio for Claude-ready prompts to handle tricky emails.</li>
+              <li><strong>Follow up &amp; close</strong> — Use the Daily Workflow tab to run your inbox in 10 minutes a day.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="card recent-card">
+          <div class="card-header">
+            <i class="ph ph-clock"></i>
+            <h3>Recent Opportunities</h3>
+          </div>
+          <div class="card-body">
+            <div id="recent-opportunities" class="recent-list">
+              <!-- Populated by JS -->
+            </div>
+            <div class="empty-state" id="recent-empty">
+              <i class="ph ph-tray"></i>
+              <p>No opportunities yet. Head to the Opportunities tab to add your first one.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== OPPORTUNITIES TAB ========== -->
+    <section class="tab-content" id="tab-opportunities">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Opportunities</h1>
+          <p class="page-subtitle">Track every brand deal, collab, and partnership in one place.</p>
+        </div>
+        <button class="btn btn-primary" id="addOpportunityBtn">
+          <i class="ph ph-plus"></i> Add Opportunity
+        </button>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-bar">
+        <div class="search-box">
+          <i class="ph ph-magnifying-glass"></i>
+          <input type="text" id="searchInput" placeholder="Search brands, contacts..." />
+        </div>
+        <select id="filterStatus" class="filter-select">
+          <option value="all">All Statuses</option>
+          <option value="new">New</option>
+          <option value="review">Review</option>
+          <option value="replied">Replied</option>
+          <option value="follow-up needed">Follow-up Needed</option>
+          <option value="closed">Closed</option>
+          <option value="archived">Archived</option>
+        </select>
+        <select id="filterType" class="filter-select">
+          <option value="all">All Types</option>
+          <option value="paid">Paid</option>
+          <option value="gifting">Gifting</option>
+          <option value="affiliate">Affiliate</option>
+          <option value="pr">PR</option>
+          <option value="partnership">Partnership</option>
+          <option value="unclear">Unclear</option>
+        </select>
+      </div>
+
+      <!-- Opportunities Grid -->
+      <div id="opportunities-grid" class="opportunities-grid">
+        <!-- Populated by JS -->
+      </div>
+      <div class="empty-state" id="opps-empty">
+        <i class="ph ph-briefcase"></i>
+        <p>No opportunities tracked yet.</p>
+        <button class="btn btn-secondary" id="addFirstOpp">Add Your First Opportunity</button>
+      </div>
+    </section>
+
+    <!-- ========== REPLY LIBRARY TAB ========== -->
+    <section class="tab-content" id="tab-replies">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Reply Library</h1>
+          <p class="page-subtitle">Copy-paste-ready templates for every creator inbox scenario.</p>
+        </div>
+      </div>
+
+      <div class="templates-grid" id="templates-grid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- ========== PROMPT STUDIO TAB ========== -->
+    <section class="tab-content" id="tab-prompts">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Prompt Studio</h1>
+          <p class="page-subtitle">Claude-ready prompts to draft, negotiate, and respond like a pro.</p>
+        </div>
+      </div>
+
+      <div class="prompts-grid" id="prompts-grid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- ========== DAILY WORKFLOW TAB ========== -->
+    <section class="tab-content" id="tab-workflow">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Daily Workflow</h1>
+          <p class="page-subtitle">How to run your creator inbox in 10 minutes a day.</p>
+        </div>
+      </div>
+
+      <div class="workflow-steps" id="workflow-steps">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       OPPORTUNITY MODAL (Add / Edit)
+       ============================================================ -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="opportunityModal">
+      <div class="modal-header">
+        <h2 id="modalTitle">Add Opportunity</h2>
+        <button class="modal-close" id="modalClose"><i class="ph ph-x"></i></button>
+      </div>
+      <form id="opportunityForm" class="modal-form">
+        <input type="hidden" id="oppId" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="oppBrand">Brand / Company *</label>
+            <input type="text" id="oppBrand" required placeholder="e.g. Glossier" />
+          </div>
+          <div class="form-group">
+            <label for="oppContact">Contact Name</label>
+            <input type="text" id="oppContact" placeholder="e.g. Sarah Kim" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="oppEmail">Email Address</label>
+            <input type="email" id="oppEmail" placeholder="sarah@glossier.com" />
+          </div>
+          <div class="form-group">
+            <label for="oppType">Opportunity Type *</label>
+            <select id="oppType" required>
+              <option value="">Select type...</option>
+              <option value="paid">Paid</option>
+              <option value="gifting">Gifting</option>
+              <option value="affiliate">Affiliate</option>
+              <option value="pr">PR</option>
+              <option value="partnership">Partnership</option>
+              <option value="unclear">Unclear</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="oppPriority">Priority</label>
+            <select id="oppPriority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="oppStatus">Status *</label>
+            <select id="oppStatus" required>
+              <option value="new">New</option>
+              <option value="review">Review</option>
+              <option value="replied">Replied</option>
+              <option value="follow-up needed">Follow-up Needed</option>
+              <option value="closed">Closed</option>
+              <option value="archived">Archived</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="oppDeliverables">Deliverables</label>
+            <input type="text" id="oppDeliverables" placeholder="e.g. 2 Reels + 1 Story" />
+          </div>
+          <div class="form-group">
+            <label for="oppRate">Rate Discussed</label>
+            <input type="text" id="oppRate" placeholder="e.g. $1,500" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="oppLastContact">Last Contact Date</label>
+            <input type="date" id="oppLastContact" />
+          </div>
+          <div class="form-group">
+            <label for="oppFollowUp">Follow-up Date</label>
+            <input type="date" id="oppFollowUp" />
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="oppNotes">Notes</label>
+          <textarea id="oppNotes" rows="3" placeholder="Any additional details..."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost" id="modalCancel">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="modalSubmit">Save Opportunity</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       DELETE CONFIRMATION MODAL
+       ============================================================ -->
+  <div class="modal-overlay" id="deleteOverlay">
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <h2>Delete Opportunity</h2>
+        <button class="modal-close" id="deleteClose"><i class="ph ph-x"></i></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this opportunity? This action cannot be undone.</p>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-ghost" id="deleteCancelBtn">Cancel</button>
+        <button class="btn btn-danger" id="deleteConfirmBtn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       TOAST NOTIFICATION
+       ============================================================ -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Overlay for mobile sidebar -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- App Script -->
+  <script src="script.js"></script>
+</body>
+</html>
