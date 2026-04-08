@@ -375,19 +375,19 @@ a:hover { color: var(--color-primary-hover); }
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 20px 24px 0;
-  font-size: 15px;
+  padding: 20px 22px 0;
+  font-size: 14.5px;
   font-weight: 600;
   color: var(--color-text);
 }
 
 .card-header i {
-  font-size: 20px;
+  font-size: 19px;
   color: var(--color-primary);
 }
 
 .card-body {
-  padding: 16px 24px 24px;
+  padding: 14px 22px 22px;
 }
 
 /* ============================================================
@@ -395,20 +395,21 @@ a:hover { color: var(--color-primary-hover); }
    ============================================================ */
 .summary-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
-  margin-bottom: 32px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-bottom: 36px;
 }
 
 .summary-card {
   background: var(--color-surface);
   border-radius: var(--radius-md);
-  padding: 22px 24px;
+  padding: 20px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   border: 1px solid var(--color-border-light);
   transition: all var(--transition);
+  min-height: 88px;
 }
 
 .summary-card:hover {
@@ -417,13 +418,13 @@ a:hover { color: var(--color-primary-hover); }
 }
 
 .summary-icon {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 20px;
   flex-shrink: 0;
 }
 
@@ -433,19 +434,27 @@ a:hover { color: var(--color-primary-hover); }
 .card-gifted .summary-icon     { background: #f3e8f5;                color: #7b2d8e; }
 .card-archived .summary-icon   { background: var(--color-surface-alt);color: var(--color-text-muted); }
 
+.summary-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
 .summary-number {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
   letter-spacing: -0.02em;
   display: block;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .summary-label {
-  font-size: 13px;
+  font-size: 12.5px;
   color: var(--color-text-secondary);
   display: block;
-  margin-top: 4px;
+  margin-top: 3px;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
 }
 
 /* ============================================================
@@ -454,30 +463,54 @@ a:hover { color: var(--color-primary-hover); }
 .dashboard-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 18px;
+  align-items: stretch;
 }
 
+/* Force both bottom cards to fill equally */
+.dashboard-grid > .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-grid > .card > .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- How-to List (structured step rows) ---- */
 .how-to-list {
   list-style: none;
   counter-reset: steps;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 0;
+  flex: 1;
 }
 
 .how-to-list li {
   counter-increment: steps;
   display: flex;
-  gap: 12px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--color-text-secondary);
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.how-to-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.how-to-list li:first-child {
+  padding-top: 0;
 }
 
 .how-to-list li::before {
   content: counter(steps);
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: var(--color-primary-light);
   color: var(--color-primary);
@@ -487,23 +520,43 @@ a:hover { color: var(--color-primary-hover); }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 1px;
+  margin-top: 0;
 }
 
-.how-to-list li strong { color: var(--color-text); }
+.how-to-step-text {
+  flex: 1;
+  min-width: 0;
+}
 
-/* Recent Opportunities */
+.how-to-step-title {
+  display: block;
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--color-text);
+  line-height: 1.4;
+  margin-bottom: 2px;
+}
+
+.how-to-step-desc {
+  display: block;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* ---- Recent Opportunities ---- */
 .recent-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex: 1;
 }
 
 .recent-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 11px 14px;
   border-radius: var(--radius-sm);
   background: var(--color-surface-alt);
   transition: background var(--transition);
@@ -525,6 +578,28 @@ a:hover { color: var(--color-primary-hover); }
 .recent-item-type {
   font-size: 12px;
   color: var(--color-text-muted);
+}
+
+/* ---- Dashboard empty state (scoped to the recent card) ---- */
+.recent-card .empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  min-height: 0;
+}
+
+.recent-card .empty-state i {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.recent-card .empty-state p {
+  font-size: 14px;
+  margin-bottom: 0;
+  max-width: 280px;
 }
 
 /* ============================================================
@@ -1167,11 +1242,20 @@ a:hover { color: var(--color-primary-hover); }
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+@media (max-width: 1200px) {
+  .summary-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 1024px) {
   .main-content { padding: 32px 28px 48px; }
   .dashboard-grid { grid-template-columns: 1fr; }
   .templates-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
+  .summary-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
